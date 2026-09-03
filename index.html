@@ -7,6 +7,7 @@
     <meta name="description" content="Dormhi's personal website is coming soon." />
     <link rel="icon" href="favicon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         * {
             margin: 0;
@@ -71,6 +72,30 @@
             0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(0,240,255,0.8), 0 0 30px rgba(0,240,255,0.5), 0 0 60px rgba(0,240,255,0.3); }
             50% { opacity: 0.85; text-shadow: 0 0 20px rgba(0,240,255,1), 0 0 50px rgba(0,240,255,0.7), 0 0 100px rgba(191,0,255,0.4); }
         }
+
+        /* Social Links */
+        .socials {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 28px;
+        }
+
+        .socials a {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .socials a:hover {
+            color: #fff;
+            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
@@ -83,6 +108,12 @@
 
     <div class="content">
         <h1 class="coming-soon">Coming Soon</h1>
+    </div>
+
+    <div class="socials">
+        <a href="https://instagram.com/KULLANICI_ADIN" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://github.com/dormhi" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/KULLANICI_ADIN" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
     </div>
 
     <script>
