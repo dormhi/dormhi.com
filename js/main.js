@@ -61,6 +61,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+
+    // --- Scroll-based video overlay ---
+    var videoOverlay = document.getElementById('video-overlay');
+    var heroSection = document.getElementById('home');
+
+    function updateVideoOverlay() {
+        if (!videoOverlay || !heroSection) return;
+
+        var heroHeight = heroSection.offsetHeight;
+        var scrollY = window.scrollY;
+
+        // Video fully visible at top, fades to opaque as hero scrolls away
+        var progress = Math.min(scrollY / heroHeight, 1);
+        // Ease-in curve for smoother transition
+        var opacity = progress * progress * 0.95;
+        videoOverlay.style.opacity = opacity;
+    }
+
+    window.addEventListener('scroll', updateVideoOverlay);
+    updateVideoOverlay();
+
     // --- Force video autoplay ---
     var bgVideo = document.getElementById('bg-video');
     if (bgVideo) {
@@ -74,3 +95,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
