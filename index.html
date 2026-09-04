@@ -4,165 +4,125 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dormhi — Coming Soon</title>
-    <meta name="description" content="Dormhi's personal website is coming soon." />
+    <title>Dormhi - Personal Portfolio</title>
+    <meta name="description" content="Davut Can Cuci (Dormhi) - Computer Engineering student, software developer. Personal portfolio website." />
+    <meta name="author" content="Davut Can Cuci" />
+    <meta property="og:title" content="Dormhi - Personal Portfolio" />
+    <meta property="og:description" content="Computer Engineering student and software developer." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dormhi.com" />
     <link rel="icon" href="favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: #000;
-            font-family: 'Orbitron', sans-serif;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        .video-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
-            z-index: 1;
-        }
-
-        .content {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            padding: 20px;
-        }
-
-        .coming-soon {
-            font-size: clamp(1.5rem, 7vw, 5rem);
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            text-align: center;
-            text-shadow:
-                0 0 10px rgba(0, 240, 255, 0.8),
-                0 0 30px rgba(0, 240, 255, 0.5),
-                0 0 60px rgba(0, 240, 255, 0.3),
-                0 0 100px rgba(191, 0, 255, 0.2);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                text-shadow: 0 0 10px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 240, 255, 0.3);
-            }
-            50% {
-                opacity: 0.85;
-                text-shadow: 0 0 20px rgba(0, 240, 255, 1), 0 0 50px rgba(0, 240, 255, 0.7), 0 0 100px rgba(191, 0, 255, 0.4);
-            }
-        }
-
-        /* Social Links */
-        .socials {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            gap: 28px;
-        }
-
-        .socials a {
-            color: rgba(255, 255, 255, 0.35);
-            font-size: 1.4rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .socials a:hover {
-            color: #fff;
-            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
-            transform: translateY(-3px);
-        }
-
-        /* Mobile */
-        @media (max-width: 480px) {
-            .coming-soon {
-                letter-spacing: 0.1em;
-            }
-
-            .socials {
-                bottom: 30px;
-                gap: 24px;
-            }
-
-            .socials a {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Landscape mobile */
-        @media (max-height: 500px) {
-            .socials {
-                bottom: 15px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
+<body data-theme="dark">
 
-    <video class="video-bg" autoplay muted loop playsinline>
-        <source src="videos/logo_video.mp4" type="video/mp4">
+    <!-- Video Background (fixed, full-screen) -->
+    <video id="bg-video" class="video-bg" autoplay muted loop playsinline>
+        <source src="videos/logo_video.mp4" type="video/mp4" />
     </video>
+    <div id="video-overlay" class="video-overlay"></div>
 
-    <div class="overlay"></div>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Dormhi</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="nav-btn" title="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="lang-toggle" class="nav-btn" title="Change language">
+                    <span>EN</span>
+                </button>
+                <button id="nav-hamburger" class="nav-hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <div class="content">
-        <h1 class="coming-soon">Coming Soon</h1>
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="section hero-section">
+        <div class="hero-content">
+            <img src="images/dormhi_profil.png" alt="Dormhi" class="hero-avatar" />
+            <h1 class="hero-title" data-i18n="hero.title">Hi, I'm Dormhi</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Computer Engineering Student | Software Developer</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary" data-i18n="hero.projects">My Projects</a>
+                <a href="#contact" class="btn btn-outline" data-i18n="hero.contact">Get in Touch</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="socials">
-        <a href="https://instagram.com/davutcucy" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://github.com/dormhi" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/davutcuci" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about.title">About Me</h2>
+            <div class="about-content">
+                <!-- About content will go here -->
+            </div>
+        </div>
+    </section>
 
-    <script>
-        const video = document.querySelector('.video-bg');
-        video.muted = true;
-        video.play().catch(() => {
-            document.addEventListener('click', () => { video.muted = true; video.play(); }, { once: true });
-        });
-    </script>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="skills.title">Skills</h2>
+            <div class="skills-content">
+                <!-- Skills content will go here -->
+            </div>
+        </div>
+    </section>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="portfolio.title">Portfolio</h2>
+            <div id="portfolio-grid" class="portfolio-grid">
+                <!-- GitHub repos will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+            <div class="contact-content">
+                <div class="social-links">
+                    <a href="https://instagram.com/davutcucy" target="_blank" title="Instagram" class="social-link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/dormhi" target="_blank" title="GitHub" class="social-link">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/davutcuci" target="_blank" title="LinkedIn" class="social-link">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Dormhi</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
