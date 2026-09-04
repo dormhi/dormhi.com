@@ -16,18 +16,24 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
             overflow: hidden;
             background: #000;
             font-family: 'Orbitron', sans-serif;
+            -webkit-text-size-adjust: 100%;
         }
 
         .video-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: 0;
         }
@@ -36,8 +42,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
             z-index: 1;
         }
@@ -46,21 +52,23 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 2;
+            padding: 20px;
         }
 
         .coming-soon {
-            font-size: clamp(2rem, 8vw, 5rem);
+            font-size: clamp(1.5rem, 7vw, 5rem);
             font-weight: 900;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
+            text-align: center;
             text-shadow:
                 0 0 10px rgba(0, 240, 255, 0.8),
                 0 0 30px rgba(0, 240, 255, 0.5),
@@ -70,13 +78,10 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
+            0%, 100% {
                 opacity: 1;
                 text-shadow: 0 0 10px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 240, 255, 0.3);
             }
-
             50% {
                 opacity: 0.85;
                 text-shadow: 0 0 20px rgba(0, 240, 255, 1), 0 0 50px rgba(0, 240, 255, 0.7), 0 0 100px rgba(191, 0, 255, 0.4);
@@ -106,6 +111,29 @@
             filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
             transform: translateY(-3px);
         }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .coming-soon {
+                letter-spacing: 0.1em;
+            }
+
+            .socials {
+                bottom: 30px;
+                gap: 24px;
+            }
+
+            .socials a {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 500px) {
+            .socials {
+                bottom: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -122,11 +150,9 @@
     </div>
 
     <div class="socials">
-        <a href="https://instagram.com/davutcucy" target="_blank" title="Instagram"><i
-                class="fa-brands fa-instagram"></i></a>
+        <a href="https://instagram.com/davutcucy" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://github.com/dormhi" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/davutcuci" target="_blank" title="LinkedIn"><i
-                class="fa-brands fa-linkedin"></i></a>
+        <a href="https://linkedin.com/in/davutcuci" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
     </div>
 
     <script>
