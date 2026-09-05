@@ -529,3 +529,109 @@ a:hover {
         justify-content: center;
     }
 }
+
+/* ================================================
+   Phase 5: About Section
+   ================================================ */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-photo {
+    position: sticky;
+    top: calc(var(--navbar-height) + 30px);
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 16px;
+    border: 2px solid var(--border-glass);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-normal);
+}
+
+.about-img:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px var(--glow-cyan);
+    transform: translateY(-4px);
+}
+
+.about-intro {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    color: var(--text-secondary);
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+}
+
+.info-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.info-card i {
+    font-size: 1.4rem;
+    color: var(--accent-cyan);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.info-card h3 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    letter-spacing: 0;
+}
+
+.info-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* About responsive */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-photo {
+        position: static;
+        text-align: center;
+    }
+
+    .about-img {
+        max-width: 200px;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+}
