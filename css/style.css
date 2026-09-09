@@ -742,3 +742,140 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ================================================
+   Phase 7: Portfolio Section (GitHub API)
+   ================================================ */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.portfolio-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 0;
+    color: var(--text-muted);
+}
+
+.portfolio-loading i {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.portfolio-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px;
+}
+
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 240, 255, 0.1);
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.repo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.repo-header > i:first-child {
+    font-size: 1.3rem;
+    color: var(--accent-cyan);
+}
+
+.repo-github-icon {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.portfolio-card:hover .repo-github-icon {
+    color: var(--accent-cyan);
+}
+
+.repo-name {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0;
+}
+
+.repo-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.repo-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.repo-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.repo-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.repo-stars i {
+    color: #f1c40f;
+    font-size: 0.75rem;
+}
+
+/* Portfolio responsive */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}

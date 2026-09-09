@@ -240,7 +240,10 @@
         <div class="container">
             <h2 class="section-title" data-i18n="portfolio.title">Portfolio</h2>
             <div id="portfolio-grid" class="portfolio-grid">
-                <!-- GitHub repos will be loaded dynamically -->
+                <div class="portfolio-loading" id="portfolio-loading">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <p data-i18n="portfolio.loading">Loading projects...</p>
+                </div>
             </div>
         </div>
     </section>
@@ -273,8 +276,11 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/github.js"></script>
 </body>
 
 </html>
+
+
 
 
