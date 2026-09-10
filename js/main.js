@@ -82,6 +82,35 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateVideoOverlay);
     updateVideoOverlay();
 
+
+    // --- Theme toggle (dark/light) ---
+    var themeToggle = document.getElementById('theme-toggle');
+    var savedTheme = localStorage.getItem('dormhi-theme') || 'dark';
+
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('dormhi-theme', theme);
+
+        var icon = themeToggle.querySelector('i');
+        if (icon) {
+            if (theme === 'dark') {
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                icon.className = 'fa-solid fa-sun';
+            }
+        }
+    }
+
+    // Apply saved theme on load
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            var current = document.body.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    }
+
     // --- Force video autoplay ---
     var bgVideo = document.getElementById('bg-video');
     if (bgVideo) {
@@ -95,5 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
 

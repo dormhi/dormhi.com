@@ -1030,3 +1030,63 @@ a:hover {
         gap: 12px;
     }
 }
+
+/* ================================================
+   Phase 11: Light Mode Adjustments
+   ================================================ */
+
+/* Light mode hero text needs darker shadow for readability */
+[data-theme="light"] .hero-title {
+    color: #fff;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .hero-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="light"] .video-overlay {
+    background: var(--bg-primary);
+}
+
+[data-theme="light"] .navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom-color: var(--accent-cyan);
+}
+
+[data-theme="light"] .skill-bar {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .skill-bar-fill {
+    box-shadow: none;
+}
+
+[data-theme="light"] .portfolio-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 136, 204, 0.12);
+}
+
+[data-theme="light"] .about-img {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .about-img:hover {
+    box-shadow: 0 10px 40px rgba(0, 136, 204, 0.2);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #e8e8e8;
+}
+
+/* Smooth transition for theme switch */
+body,
+.navbar,
+.info-card,
+.skill-category,
+.portfolio-card,
+.contact-card,
+.social-link,
+.nav-btn,
+.footer {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
