@@ -43,7 +43,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var navLinkAll = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', function() {
-        var scrollPos = window.scrollY + 100;
+        var scrollPos = window.scrollY + 150;
+
+        // Eger sayfanin en altindaysak direkt contact'i aktif yap
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            navLinkAll.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            var contactLink = document.querySelector('.nav-link[href="#contact"]');
+            if (contactLink) contactLink.classList.add('active');
+            return;
+        }
 
         sections.forEach(function(section) {
             var top = section.offsetTop;
@@ -124,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
 
 
