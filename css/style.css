@@ -879,3 +879,154 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ================================================
+   Phase 8: Contact Section + Footer
+   ================================================ */
+
+.contact-content {
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    padding: 28px 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+    min-width: 200px;
+}
+
+.contact-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 240, 255, 0.1);
+}
+
+.contact-card i {
+    font-size: 1.6rem;
+    color: var(--accent-cyan);
+    margin-bottom: 12px;
+}
+
+.contact-card h3 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: 0;
+}
+
+.contact-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.social-link i {
+    font-size: 1.2rem;
+}
+
+.social-link:hover {
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--glow-cyan);
+    background: var(--bg-card-hover);
+}
+
+/* Footer */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-socials a {
+    color: var(--text-muted);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.footer-socials a:hover {
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 6px var(--glow-cyan));
+}
+
+/* Contact + Footer responsive */
+@media (max-width: 580px) {
+    .contact-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-link {
+        width: 100%;
+        max-width: 260px;
+        justify-content: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
