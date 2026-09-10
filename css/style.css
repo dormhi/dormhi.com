@@ -554,7 +554,7 @@ a:hover {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 1fr;
     gap: 60px;
     align-items: start;
 }
@@ -1250,5 +1250,6 @@ button:focus-visible {
         color: #000;
     }
 }
+
 
 
