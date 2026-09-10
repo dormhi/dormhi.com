@@ -2,9 +2,14 @@
 
 (function() {
 
+    // Respect reduced-motion and data-saver preferences: skip particles entirely
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (prefersReducedMotion || saveData) return;
+
     var canvas = document.createElement('canvas');
     canvas.id = 'particle-canvas';
-    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-3;pointer-events:none;';
+    canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;height:100dvh;z-index:-3;pointer-events:none;';
     document.body.prepend(canvas);
 
     var ctx = canvas.getContext('2d');
@@ -13,6 +18,10 @@
     var mouse = { x: null, y: null };
     var connectDistance = 120;
     var animId;
+    var running = false;
+
+    // Connections (O(n^2)) are disabled on small screens for performance
+    var drawConnectionsEnabled = window.innerWidth >= 768;
 
     function resize() {
         canvas.width = window.innerWidth;
@@ -97,12 +106,24 @@
             p.draw();
         });
 
-        drawConnections();
+        if (drawConnectionsEnabled) drawConnections();
         animId = requestAnimationFrame(animate);
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        animate();
+    }
+
+    function stop() {
+        running = false;
+        if (animId) cancelAnimationFrame(animId);
     }
 
     // Event listeners
     window.addEventListener('resize', function() {
+        drawConnectionsEnabled = window.innerWidth >= 768;
         resize();
         init();
     });
@@ -117,6 +138,15 @@
         mouse.y = null;
     });
 
+    // Pause when the tab/page is hidden to save battery
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            stop();
+        } else {
+            start();
+        }
+    });
+
     // Reduce particles on mobile for performance
     if (window.innerWidth < 768) {
         particleCount = 35;
@@ -125,6 +155,6 @@
 
     resize();
     init();
-    animate();
+    start();
 
 })();

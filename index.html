@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0f" />
     <title>Dormhi - Personal Portfolio</title>
     <meta name="description" content="Davut Can Cuci (Dormhi) - Computer Engineering student, software developer. Personal portfolio website." />
     <meta name="author" content="Davut Can Cuci" />
@@ -20,7 +21,7 @@
 <body data-theme="dark">
 
     <!-- Video Background (fixed, full-screen) -->
-    <video id="bg-video" class="video-bg" autoplay muted loop playsinline>
+    <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
         <source src="videos/logo_video.mp4" type="video/mp4" />
     </video>
     <div id="video-overlay" class="video-overlay"></div>
@@ -43,7 +44,7 @@
                 <button id="lang-toggle" class="nav-btn" title="Change language">
                     <span>TR</span>
                 </button>
-                <button id="nav-hamburger" class="nav-hamburger" aria-label="Toggle menu">
+                <button id="nav-hamburger" class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -55,7 +56,7 @@
     <!-- Hero Section -->
     <section id="home" class="section hero-section">
         <div class="hero-content">
-            <img src="images/dormhi_profil.png" alt="Dormhi" class="hero-avatar" />
+            <img src="images/dormhi_profil.png" alt="Dormhi" class="hero-avatar" width="140" height="140" decoding="async" />
             <h1 class="hero-title" data-i18n="hero.title">Hi, I'm Dormhi</h1>
             <p class="hero-subtitle" data-i18n="hero.subtitle">Computer Engineering Student | Software Developer</p>
             <div class="hero-buttons">
